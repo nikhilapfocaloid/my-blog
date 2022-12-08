@@ -3,14 +3,14 @@
     <section class="tm-section">
       <div class="container-fluid">
         <div class="row">
-          <div v-for="blog in blogs" :key="blog.id" class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+          <div v-for="blog in blogs" :key="blog.id" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
               <div class="tm-content-box">
                   <h4 class="tm-margin-b-20 tm-gold-text">{{ blog.title }}</h4>
                   <p class="tm-margin-b-20">{{ blog.body }}</p>
-                  <a href="#" class="tm-btn text-uppercase">Detail</a>    
+                  <router-link :to="{path:'blog-details/'+blog.id}" class="tm-btn text-uppercase">Detail</router-link>
               </div>  
           </div>
-        </div> <!-- row -->
+        </div>
       </div>
     </section> 
   </div>
@@ -26,15 +26,14 @@ export default {
       }
   },
   methods: {
-    getAllUsers() {
+    getBlogs() {
       getAllBlogs().then(response => {
-        console.log(response)
         this.blogs = response
       })
     }
   },
   mounted () {
-    this.getAllUsers();
+    this.getBlogs();
   }
 }
 </script>

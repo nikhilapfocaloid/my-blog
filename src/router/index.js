@@ -11,12 +11,11 @@ const routes = [
     component: BlogsView
   },
   {
-    path: '/blog-details',
+    path: '/blog-details/:id',
     name: 'blogdetails',
     component: () => import(/* webpackChunkName: "about" */ '../views/BlogdetailsView.vue')
   }
 ]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
